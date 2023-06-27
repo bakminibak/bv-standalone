@@ -1,0 +1,404 @@
+body {
+  font-size: 24px;
+  background-color: rgb(2, 20, 41);
+}
+.loaderIcon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20000;
+  
+  background-color: rgba(2, 20, 41, 0.658);
+}
+.fader {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(2, 20, 41, 0.9);
+  /* transition: all 1s ;   */
+  z-index: 10000;
+  
+  animation: fadeOut 2s ease-out;
+  animation-fill-mode: forwards;
+}
+.App {
+  text-align: center;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+main {
+  width: auto;
+  max-height: 98vh;
+  height: 100%;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  position: relative;
+  background-color: #282c34;
+  /* min-height: 100vh; */
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.animation-container {
+  background-color: red;
+}
+.level-animation-container {
+  position: relative;
+  background-color: #282c34;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.intro-heading {
+    position: absolute;
+    z-index: 150;
+    left: 0;
+    right: 0;
+    width: 60%;
+    top: 15%;
+    margin: auto;
+    text-shadow: 2px 2px #0000002c;
+}
+.mobile-view .intro-heading {
+  width:60%;  
+  top: 11%;
+}
+.intro-heading-totalbonus {
+  font-size: clamp(20px, 4vw, 34px);
+  color: #FFCB05;
+  font-weight: lighter;
+}
+.intro-heading-title {
+  color: #fff;
+  font-size: 34px;
+  font-weight: bolder;
+  display: none;
+}
+.intro-heading-logo img {
+  max-width: 200px;
+  display: none;
+}
+
+
+.chests {
+  display: flex;
+  position: absolute;
+  z-index: 100;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* scale: 1.3; */
+  /* padding-left: 100px;
+  padding-right: 100px;
+  margin-left: -50px;
+  margin-right: -50px; */
+}
+.chests-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+.chest-wrapper {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 100px;
+}
+.chest-wrapper .points {
+  /* background-color: greenyellow; */
+  position: absolute;
+  color: #007900;
+  font-size: min(max(16px, 4vw), 32px);
+  /* transform: translateY(-430px); */
+  opacity: 0;
+  display: block;
+  transition:  bottom 0.5s ease 0.5s, opacity 0.5s ease-out 0.5s;
+  z-index: 100;
+  padding-right: 27px;
+  font-weight: bolder;
+  text-align: center;
+  left: 0;
+  right: 0px;
+  line-height: 16px;
+  bottom: 0;
+  text-shadow: 1px 1px #ffffffc0;
+}
+.chest-wrapper .points.negative {
+  color: #da0303!important;
+}
+.mobile-view .points {
+  font-size: 12px;
+  line-height: 10px;
+  padding-right: 15px;
+}
+.mobile-view .points .small-text {
+  font-size: 8px;
+}
+
+.small-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+.chest-wrapper .points.show { 
+  /* transform:  translateY(-290px); */
+  bottom: 75%;
+  
+  display: block;
+  /* margin-top: 200px; */
+  opacity: 1;
+}
+.chest-wrapper .hide  .finger-container {
+  opacity: 0;
+}
+.chest-wrapper .finger-container {
+  transition: opacity 0.5s ease-out 0.3s;
+}
+.kovcheg-anim_full {
+  bottom: 0;
+}
+.chest {
+  /* background-color: red;   */
+  /* position: absolute;   */
+  /* width: 30%; */
+  transform: scale(1);
+  /* bottom: -90px; */
+  margin-bottom: 37px;
+  position: relative;
+}
+.mobile-view .chest {
+  transform: scale(1.6);
+}
+.mobile-view .chest.k2 {
+  transform: scale(1.4);
+  margin-bottom: 95px;
+  z-index: 0;
+}
+.mobile-view .chest .percent {
+  font-size: 6px;
+}
+
+.chest  .false {
+  display: none;
+}
+.k1 {
+  /* position: absolute; */
+  /* left: 10%; */
+  z-index: 1;
+  /* width: 30%; */
+  /* scale: 0.8; */
+  margin-bottom: 55px;
+}
+.k2 {
+  /* position: absolute; */
+  /* left: 34%; */
+  z-index: 3;  
+  transform: scale(1.2);
+}
+.k3 {
+  /* position: absolute; */
+  /* left: 57%; */
+  /* scale: 0.8; */
+  margin-bottom: 55px;
+  z-index: 2;
+}
+.finger-container {
+  position: absolute;
+  transform: scale(0.6);
+  top: 0;
+  left: 40%;
+}
+.mobile-view .finger-container {
+  transform: scale(0.4);
+}
+
+.button_getbonus,
+.button_next {
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+  z-index: 200;
+  /* max-width: 30%; */
+}
+.button_next {
+  animation-name: swing-lr;
+  animation-duration: 1s;  
+  animation-iteration-count: infinite;
+}
+
+.mobile-view .btn{
+  max-height: 30px;
+  /* position: relative; */
+  bottom: 30px;
+}
+.mobile-view .btn img {
+  max-height: 30px;
+  width: auto;
+}
+.mobile-view .finalPoints {
+  top: 23%;
+}
+.button_getbonus {
+  
+}
+.button_check_account {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  right: 0px;
+  left: 0;
+  z-index: 200;
+  text-align: center;
+}
+.button_start {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0px;
+  left: 0;
+  z-index: 200;
+  text-align: center;
+}
+.button_getbonus img,
+.button_start img {
+  max-width: 240px;
+}
+.button_check_account img {
+  max-width: 340px;
+}
+.welcome-scr-animation-container .btn {
+  position: absolute;
+  text-align: center;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+}
+.start_btn {
+  opacity: 0;
+  transform: translateY(300px);
+  transition: all 0.5s ease;
+}
+.start_btn.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.start_btn {
+  max-width: 310px;
+}
+.c-container {
+  position: relative;
+
+}
+.c-container1 {
+  display: none;
+}
+.c-container .finalPoints {  
+  font-size: clamp(20px, 4vw, 34px);
+  color: rgb(0,38,82);
+  font-weight: bolder;
+  position: absolute;
+  top: 24%;
+  z-index: 300;
+  left: 0;
+  right: 0;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 2s 1s ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.session-end {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10000;
+}
+.btn {
+  background-color: transparent;
+  border: none;
+  bottom: 25px;
+}
+.btn img {
+  width: auto;
+  height: 100%;
+  max-height: 40px;
+}
+@media only screen and (max-width: 768px){
+  .chests-container {
+    margin: auto 20px auto 40px;
+    
+  }
+  .chest-wrapper {
+    margin-bottom: -25px;
+  }
+}
+
+@keyframes swing-lr {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
