@@ -21,11 +21,11 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(2, 20, 41, 0.9);
+  background-color: rgba(2, 20, 41, 1);
   /* transition: all 1s ;   */
   z-index: 10000;
   
-  animation: fadeOut 2s ease-out;
+  animation: fadeOut 1.5s ease-in;
   animation-fill-mode: forwards;
 }
 .App {

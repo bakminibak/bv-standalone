@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import {
   BrowserView,
   MobileView,
-  isBrowser,
+  // isBrowser,
   isMobile,
 } from "react-device-detect";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 
 import { Level } from "./components/Level";
@@ -20,7 +20,6 @@ import { SessionEndMobile } from "./components/SessionEnd_Mobile";
 
 import { WelcomeDeskMobile } from "./components/WelcomeDesk_Mobile";
 import { IntroAnimationMobile } from "./components/introMobile/IntroAnimationMobile";
-import { Fader } from "./components/FaderComponent";
 
 function App() {
   //const animationContainer = useRef(null);
@@ -30,12 +29,13 @@ function App() {
   const [isSessionActive, setIsSessionActive] = useState(true);
   // const [showInfoScr, setShowInfoScr] = useState(false);
 
-  const orentation = isMobile;
+  // const orentation = isMobile;
 
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
+  // const [error, setError] = useState(null);
+  // const [items, setItems] = useState([]);
+
   const [isLoading, setIsLoading] = useState(true);
+  
 
   const levelPrizes = [
     [500, -200, -50],
@@ -43,33 +43,14 @@ function App() {
     [-100, 2500, 500],
   ];
 
-  const getChestReward = (level) => {
-    fetch("https://api.example.com/items")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setItems(result);
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      );
-  };
-
-  const animatePoints = (_points) => {
-    let _toPoints = totalPoints + _points;
-  };
+ 
   const updateTotalPoints = () => {
     let _points = Number(levelPrizes[currentLevel - 1][numChestOpened]);
 
+    setTimeout(() => {
+      setTotalPoints(totalPoints + _points);
+    }, 500);
     setNumChestOpened(numChestOpened + 1);
-    //animatePoints(_points);
-    setTotalPoints(totalPoints + _points);
   };
   const updateLevel = (level) => {
     setCurrentlevel(level);
@@ -139,17 +120,18 @@ function App() {
       setIsLoading(false);
     });
   };
+  console.log("IsMobile: ", isMobile)
   return (
     <div className="App">
       <header className="App-header"></header>
 
       {isLoading && currentLevel < 4 && (
         <div className="loaderIcon">
-          <img src="./images/loader.gif" />
+          <img src="./images/loader.gif" alt="loding" />
         </div>
       )}
       <main>
-        {(isMobile && (
+        {/* {(isMobile && ( */}
           <MobileView className="mobile-view">
             {!isSessionActive && <SessionEndMobile />}
             {currentLevel === -1 && (
@@ -206,7 +188,7 @@ function App() {
               />
             )}
           </MobileView>
-        )) || (
+        {/* )) || ( */}
           <BrowserView className="desktop-view">
             {!isSessionActive && <SessionEnd />}
             {currentLevel === -1 && <WelcomeDesk updateLevel={updateLevel} />}
@@ -259,7 +241,7 @@ function App() {
               />
             )}
           </BrowserView>
-        )}
+        {/* )} */}
       </main>
     </div>
   );

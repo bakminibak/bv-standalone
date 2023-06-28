@@ -6,7 +6,7 @@ const ScreenLoader = () => {
   useEffect(() => {
     setTimeout(() => {
         setShowScreenOverlay(false)
-    }, 2000);
+    }, 1500);
   }, [])
   
   return <>{showScreenOverlay && <div className="fader"></div>}</>;
